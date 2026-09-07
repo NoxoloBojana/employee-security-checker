@@ -14,6 +14,7 @@ public class EmployeeSecurityChecker {
 
         System.out.println("Employee: " + employeeName);
 
+        // Security training
         String securityTraining;
 
         while (true) {
@@ -28,12 +29,37 @@ public class EmployeeSecurityChecker {
             System.out.println("Please enter yes or no.");
         }
 
-        System.out.print("Phishing test passed? (yes/no): ");
-        String phishingTest = scanner.nextLine();
+        // Phishing test
+        String phishingTest;
 
-        System.out.print("Password training completed? (yes/no): ");
-        String passwordTraining = scanner.nextLine();
+        while (true) {
+            System.out.print("Phishing test passed? (yes/no): ");
+            phishingTest = scanner.nextLine();
 
+            if (phishingTest.equalsIgnoreCase("yes") ||
+                    phishingTest.equalsIgnoreCase("no")) {
+                break;
+            }
+
+            System.out.println("Please enter yes or no.");
+        }
+
+        // Password training
+        String passwordTraining;
+
+        while (true) {
+            System.out.print("Password training completed? (yes/no): ");
+            passwordTraining = scanner.nextLine();
+
+            if (passwordTraining.equalsIgnoreCase("yes") ||
+                    passwordTraining.equalsIgnoreCase("no")) {
+                break;
+            }
+
+            System.out.println("Please enter yes or no.");
+        }
+
+        // Calculate score
         int score = 0;
 
         if (securityTraining.equalsIgnoreCase("yes")) {
@@ -48,6 +74,7 @@ public class EmployeeSecurityChecker {
             score++;
         }
 
+        // Decide risk level
         String riskLevel;
 
         if (score == 3) {
@@ -58,6 +85,7 @@ public class EmployeeSecurityChecker {
             riskLevel = "HIGH RISK";
         }
 
+        // Display result
         System.out.println();
         System.out.println("================================");
         System.out.println("Employee: " + employeeName);
