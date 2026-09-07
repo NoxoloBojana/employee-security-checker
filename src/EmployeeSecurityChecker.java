@@ -14,8 +14,19 @@ public class EmployeeSecurityChecker {
 
         System.out.println("Employee: " + employeeName);
 
-        System.out.print("Security training completed? (yes/no): ");
-        String securityTraining = scanner.nextLine();
+        String securityTraining;
+
+        while (true) {
+            System.out.print("Security training completed? (yes/no): ");
+            securityTraining = scanner.nextLine();
+
+            if (securityTraining.equalsIgnoreCase("yes") ||
+                    securityTraining.equalsIgnoreCase("no")) {
+                break;
+            }
+
+            System.out.println("Please enter yes or no.");
+        }
 
         System.out.print("Phishing test passed? (yes/no): ");
         String phishingTest = scanner.nextLine();
