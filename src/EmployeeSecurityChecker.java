@@ -74,16 +74,8 @@ public class EmployeeSecurityChecker {
             score++;
         }
 
-        // Decide risk level
-        String riskLevel;
-
-        if (score == 3) {
-            riskLevel = "LOW RISK";
-        } else if (score == 2) {
-            riskLevel = "MEDIUM RISK";
-        } else {
-            riskLevel = "HIGH RISK";
-        }
+        // Get risk level
+        String riskLevel = getRiskLevel(score);
 
         // Display result
         System.out.println();
@@ -94,5 +86,19 @@ public class EmployeeSecurityChecker {
         System.out.println("================================");
 
         scanner.close();
+    }
+
+    // This method decides the risk level
+    public static String getRiskLevel(int score) {
+
+        if (score == 3) {
+            return "LOW RISK";
+
+        } else if (score == 2) {
+            return "MEDIUM RISK";
+
+        } else {
+            return "HIGH RISK";
+        }
     }
 }
