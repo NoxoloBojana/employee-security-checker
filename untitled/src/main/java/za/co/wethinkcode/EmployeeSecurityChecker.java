@@ -62,19 +62,13 @@ public class EmployeeSecurityChecker {
         }
 
         // Calculate score
-        int score = 0;
+        SecurityChecker securityChecker = new SecurityChecker();
 
-        if (securityTraining.equalsIgnoreCase("yes")) {
-            score++;
-        }
-
-        if (phishingTest.equalsIgnoreCase("yes")) {
-            score++;
-        }
-
-        if (passwordTraining.equalsIgnoreCase("yes")) {
-            score++;
-        }
+        int score = securityChecker.calculateScore(
+                securityTraining,
+                phishingTest,
+                passwordTraining
+        );
 
         // Get risk level
         String riskLevel = getRiskLevel(score);
