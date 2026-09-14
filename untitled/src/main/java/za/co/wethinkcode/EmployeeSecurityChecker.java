@@ -87,6 +87,11 @@ public class EmployeeSecurityChecker {
         // Get risk level
         String riskLevel = getRiskLevel(score);
 
+       // Display security report
+        SecurityReport securityReport = new SecurityReport();
+
+        securityReport.displayReport(employee, score, riskLevel);
+
         // Display result
         System.out.println();
         System.out.println("================================");
