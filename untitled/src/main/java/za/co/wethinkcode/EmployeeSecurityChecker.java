@@ -61,14 +61,28 @@ public class EmployeeSecurityChecker {
             System.out.println("Please enter yes or no.");
         }
 
+        // Convert answers to true or false
+        boolean securityTrainingCompleted =
+                securityTraining.equalsIgnoreCase("yes");
+
+        boolean phishingTestPassed =
+                phishingTest.equalsIgnoreCase("yes");
+
+        boolean passwordTrainingCompleted =
+                passwordTraining.equalsIgnoreCase("yes");
+
+        // Create Employee object
+        Employee employee = new Employee(
+                employeeName,
+                securityTrainingCompleted,
+                phishingTestPassed,
+                passwordTrainingCompleted
+        );
+
         // Calculate score
         SecurityChecker securityChecker = new SecurityChecker();
 
-        int score = securityChecker.calculateScore(
-                securityTraining,
-                phishingTest,
-                passwordTraining
-        );
+        int score = securityChecker.calculateScore(employee);
 
         // Get risk level
         String riskLevel = getRiskLevel(score);

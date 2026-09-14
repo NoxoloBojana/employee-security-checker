@@ -1,6 +1,6 @@
+package za.co.wethinkcode;
+
 import org.junit.jupiter.api.Test;
-import za.co.wethinkcode.EmployeeSecurityChecker;
-import za.co.wethinkcode.SecurityChecker;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -43,11 +43,14 @@ public class EmployeeSecurityCheckerTest {
 
         SecurityChecker securityChecker = new SecurityChecker();
 
-        int score = securityChecker.calculateScore(
-                "yes",
-                "yes",
-                "yes"
+        Employee employee = new Employee(
+                "Noxolo",
+                true,
+                true,
+                true
         );
+
+        int score = securityChecker.calculateScore(employee);
 
         assertEquals(3, score);
     }
@@ -57,11 +60,14 @@ public class EmployeeSecurityCheckerTest {
 
         SecurityChecker securityChecker = new SecurityChecker();
 
-        int score = securityChecker.calculateScore(
-                "yes",
-                "yes",
-                "no"
+        Employee employee = new Employee(
+                "Noxolo",
+                true,
+                true,
+                false
         );
+
+        int score = securityChecker.calculateScore(employee);
 
         assertEquals(2, score);
     }
@@ -71,11 +77,14 @@ public class EmployeeSecurityCheckerTest {
 
         SecurityChecker securityChecker = new SecurityChecker();
 
-        int score = securityChecker.calculateScore(
-                "yes",
-                "no",
-                "no"
+        Employee employee = new Employee(
+                "Noxolo",
+                true,
+                false,
+                false
         );
+
+        int score = securityChecker.calculateScore(employee);
 
         assertEquals(1, score);
     }
@@ -85,11 +94,14 @@ public class EmployeeSecurityCheckerTest {
 
         SecurityChecker securityChecker = new SecurityChecker();
 
-        int score = securityChecker.calculateScore(
-                "no",
-                "no",
-                "no"
+        Employee employee = new Employee(
+                "Noxolo",
+                false,
+                false,
+                false
         );
+
+        int score = securityChecker.calculateScore(employee);
 
         assertEquals(0, score);
     }

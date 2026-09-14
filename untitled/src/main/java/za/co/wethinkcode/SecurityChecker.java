@@ -2,22 +2,19 @@ package za.co.wethinkcode;
 
 public class SecurityChecker {
 
-    public int calculateScore(
-            String securityTraining,
-            String phishingTest,
-            String passwordTraining) {
+    public int calculateScore(Employee employee) {
 
         int score = 0;
 
-        if (securityTraining.equalsIgnoreCase("yes")) {
+        if (employee.isSecurityTrainingCompleted()) {
             score++;
         }
 
-        if (phishingTest.equalsIgnoreCase("yes")) {
+        if (employee.isPhishingTestPassed()) {
             score++;
         }
 
-        if (passwordTraining.equalsIgnoreCase("yes")) {
+        if (employee.isPasswordTrainingCompleted()) {
             score++;
         }
 
